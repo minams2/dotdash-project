@@ -3,7 +3,7 @@ This is a fun project where I briefly extended the functionality of <a href="htt
 
 <h3>Setup:</h3>
 
-In order to install the NSS-TODO-List (extended) application:
+In order to install the NSS-TODO-List (extended) application:test
 <ul>
 <li>Make sure that you have a server installed that can serve PHP. Apache would be a good option.</li>
 <li>Make sure you have a PHP 5.2.5 or higher installed on your system.</li>
