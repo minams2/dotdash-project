@@ -1,1 +1,83 @@
 //please add your test cases here.
+
+Test link: http://localhost/dotdash-project/index.php
+Go to this link or load the local host urlhttp://localhost/dotdash-project/index.php.
+ Verify all the 3 sections(header, todos, controls) of  ui elements are displayed correctly
+
+UI TESTCASES
+
+Header content:
+==================
+Verify header content has following displayed "label" NSS-TODo List v1.1 and Date/Time
+
+ToDo Content:
+===================
+Verify Todo content should list all 'Tasks' if it has any or other wise should display blank space surrounded by horizontal lines
+Verify each task in to do content area should have check box, number, date. Each task should have different font color depending on the category of the task that was added
+Verify completed task should be striked out
+ Verify overdue should be highlighted in red
+ 
+ Controls Content:
+ ===================
+ Verify 'Remove', 'Complete', 'Toggle all[Advanced]', 'Categories' 'text field to add task', 'Add' button, 'Category drop down', 'Due Date drop down', text field to add category, 'Add Category button','Category drop down' are displayed
+ 
+FUNCTIONAL TESTCASES
+
+Remove:
+Verify nothing happens on clicking 'Remove' button without selecting any task
+Verify selected task should be removed by clicking 'Remove' button.(Note: test by selecting single or multiple task)
+Check on 'Toggle all', click on 'Remove' button, Verify all tasks should be removed
+
+Complete:
+Verify nothing happens on clicking 'Complete' button without selecting any task
+Verify selected task should be strike out by clicking complete button.(Note: test by selecting single or multiple task)
+Check on 'Toggle all', click on 'Complete' button, Verify all tasks should be 'Strike out'
+Verify once task is complete, user cannot revert it back(they cannot un strike it)
+
+Toggle All:
+Check 'Toggle All' verify all tasks are checked
+Un check 'Toggle All', verify all tasks are un checked
+
+Advanced Link:
+load the page, click on 'Advance' verify only 'text field to enter task' and 'Add' button is displayed
+click 'Advance' button one more time, verify 2 text fields to enter task, category name, Category drop down, task drop down should be displayed
+
+Category Link:
+Verify clicking any one of the category link should navigate to respective page where it has option to 'remove' or 'nevermind'
+Verify clicking on 'NeverMind' should not remove the task and get back to homepage(index.php)
+Verify clicking on browser back button should also take back to homepage(index.php)
+Clicking on forward button should go to respective category page
+Verify clicking on 'remove' link from category page should remove category link index page and also should be removed from category dropdown but task associated with the category should be listed and task color should switch back to black if the category has color
+Click on all available category link and remove all of them verify 'Category' drop down should have only 'None' as the option.
+
+Adding task:
+Nothing happens on clicking the 'Add' button without entering any task
+Add a task without selecting any category or any date, verify task should be added with None
+Add a task by selecting only category and no date, no month, no year, verify task is added with selected category and None(note: task name will have different font color if the category has any color associated with it)
+Add a task by selecting only category and either month, day or year. Verify task is added with selected category & none
+Add a task by selecting only selecting month, day, year and not any category. Verify task is added with default black color with selected date in parenthesis
+Add a task by selecting category, day, month, year. verify task is added with selected category(different font if category has it)and with correct date and year
+Verify task is displayed in red color if the due date is entered as current date,day,year. 
+Verify task category color is ignored and will display only red color if the due date is current day,month, year.
+Verify task category color changes to red if task is due next day but current time is 6pm or so and display category in parenthesis.(Example:   game5 (17/04/18)(games) - games5&date in red color)
+Verify "Sorry that TODO item already exits" message is displayed if duplicate task with same category or date is entered. Clicking on 'Back' from message  or browser back button should return back to index page
+Enter any special characters or any numbers of chars  upto 150 or more, verify task is added and should not break the system.(Note: There is no field validation or no max limit set for text field)
+Verify user can add new task after removing existing task (Note: Just sanity check to make sure user can add a task after deleting a task)
+
+Adding Category:
+Verify nothing happens without entering any category & clicking on 'Add Category' button. 
+Add a category without selecting any color. Verify category name with black is added in category link and category drop down
+Add a task by selecting  newly added category. Verify task color is black.
+Add a category by selecting color which is not chosen for any other task. Verify  both category link & in category in drop down has chosen color 
+Add a task by selecting  newly added category. Verify task color is same as previous test case.
+Add  a category by selecting color which is chosen for other task. verify user has option to 'rename the category', 'nevermind','Add a category with this color'
+Verify clicking on 'nevermind'or browser back should return back to index page
+Verify clicking on 'rename the category' with will rename the existing category with new name and name change should be reflected in 'category' link and 'category dropdown'but previously added task color shouldn't change.
+ Add a task by selecting newly rename category. verify task color with selected color in previous test case. 
+Verify clicking on 'Add Category with this colour' should add category with newly selected color and existing category with same color should change back to black and new category color should reflect in color link and category drop down.
+Verify 'The category you want to add already exists' message is displayed if duplicate category is added. Verify user can return back to index page by clicking on browser back or never mind link.
+Enter any special characters or any numbers of chars  upto 150 or more, verify category is added and should not break the system.(Note: There is no field validation or no max limit set for text field)
+Verify user can remove the category by selecting 'category link' and add new category with existing category color or new color.
+
+End to End testing:
+Add a category with new color or existing color, verify new category with selected color is displayed in category link and category drop down, select the newly added category and create a new task. Verify new task with new category with respective color should be added.
