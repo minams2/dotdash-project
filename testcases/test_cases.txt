@@ -1,1 +1,123 @@
 //please add your test cases here.
+
+Test link: http://localhost/dotdash-project/index.php
+Go to this link or load the local host urlhttp://localhost/dotdash-project/index.php.
+ Verify all the 3 sections(header, todos, controls) of  ui elements are displayed correctly
+
+UI TESTCASES
+
+Header content:
+==================
+Verify header content has following displayed "label" NSS-TODo List v1.1 and Date/Time
+
+ToDo Content:
+===================
+Verify Todo content should list all 'Tasks' if it has any or other wise should display blank space surrounded by horizontal lines
+Verify each task in to do content area should have check box, number, date. Each task should have different font color depending on the category of the task that was added
+Verify completed task should be striked out
+ Verify overdue should be highlighted in red
+ 
+ Controls Content:
+ ===================
+ Verify 'Remove', 'Complete', 'Toggle all[Advanced]', 'Categories' 'text field to add task', 'Add' button, 'Category drop down', 'Due Date drop down', text field to add category, 'Add Category button','Category drop down' are displayed
+ 
+FUNCTIONAL TESTCASES
+
+Remove:
+Verify nothing happens on clicking 'Remove' button without selecting any task
+Verify selected task should be removed by clicking 'Remove' button.(Note: test by selecting single or multiple task) and user will not able to revert it back.
+Check on 'Toggle all', click on 'Remove' button, Verify all tasks should be removed and task section should be blank.
+
+Complete:
+Verify nothing happens on clicking 'Complete' button without selecting any task
+Verify selected task should be strike out by clicking complete button.(Note: test by selecting single or multiple task)
+Check on 'Toggle all', click on 'Complete' button, Verify all tasks should be 'Strike out'
+Verify once task is complete, user can revert it back by selecting the same task check box and clicking on 'complete' button.
+
+Toggle All:
+Check 'Toggle All' verify all tasks are checked
+Un check 'Toggle All', verify all tasks are un checked
+
+Advanced Link:
+load the page, click on 'Advance' verify only 'text field to enter task' and 'Add' button is displayed
+click 'Advance' button one more time, verify 2 text fields to enter task, category name, Category drop down, task drop down should be displayed
+
+Category Link:
+Verify clicking any one of the category link should navigate to respective page where it has option to 'remove' or 'nevermind'
+Verify clicking on 'NeverMind' should not remove the task and get back to homepage(index.php)
+Verify clicking on browser back button should also take back to homepage(index.php)
+Clicking on forward button should go to respective category page
+Verify clicking on 'remove' link from category page should remove category link index page and also should be removed from category dropdown but task associated with the category should be listed and task color should switch back to black if the category has color
+Click on all available category link and remove all of them verify 'Category' drop down should have only 'None' as the option.
+
+Adding task:
+Nothing happens on clicking the 'Add' button without entering any task
+Add a task without selecting any category or any date, verify task should be added with None
+Add a task by selecting only category and no date, no month, no year, verify task is added with selected category and None(note: task name will have different font color if the category has any color associated with it)
+Add a task by selecting only category and either month, day or year. Verify task is added with selected category & none
+Add a task by selecting only selecting month, day, year and not any category. Verify task is added with default black color with selected date in parenthesis
+Add a task by selecting category, day, month, year. verify task is added with selected category(different font if category has it)and with correct date and year
+Verify task is displayed in red color if the due date is entered as current date,day,year or older than current date,also category color will be ignored.
+Verify task category color changes to red if there are more than one task which are due then it should display category in parenthesis with the category color.(Example:   game5 (17/04/18)(games) , games5&date in red color)
+Verify task is displayed to the bottom if there are no due dates.
+Verify task is displayed to top if the task is due on current date or older from current date
+Verify task is displayed in ascending order if there are more than 1 task which are due
+Verify task is displayed in ascending order of date if valid date is entered.
+Verify "Sorry that TODO item already exits" message is displayed if duplicate task with same category or date is entered. Clicking on 'Back' from message  or browser back button should return back to index page
+Enter any special characters or any numbers of chars  upto 150 or more, verify task is added and should not break the system.(Note: There is no field validation or no max limit set for text field)
+Verify entering task name say up to 150 characters,it wraps to second line and horizontal scrollbar is displayed.
+Verify user can add new task after removing existing task (Note: Just sanity check to make sure user can add a task after deleting a task)
+Verify vertical scroll bar is displayed when there are more number of task are added
+
+Updating Task:
+ Verify clicking on tasknumber link navigates to new page where user can update the task
+ Verify tasknumber link colors changes to black on clicking on it
+Click on task number, Enter (new task name, enter category,day, month, year). Click update. Verify the same task gets updated with new task name.
+click on task number, Don't change the taskname, change category, day, month, year. click update. Verify the same task gets updated with new category, day, month, year values.
+click on task number, don't change the taskname, category, change combination day or month or year. Verify the same task/category gets updated with new date changes
+click on task number, don't change the taskname, change combination of category or day or month or year. Verify the same task gets updated with new changes.
+Verify error message is displayed if the task is updated with existing taskname and verify user can cancel by clicking on'back' link or browser back button.
+Verify task name is updated with say more than 150 characters, it wraps to second line and horizontal scrollbar is displayed.(Note: There is no field validation or no max limit set for text field)
+Verify updating the task with current date or older date will put the task at the top with font highlighted in red and category is ignored.
+Verify updating the task with current or older date will display in ascending order if there are more than 1 task which are due, task font color is red and put category color in parenthesis.
+Verify updating the completed task with current or older date should not change font color(category) to red.
+Verify updating the task with no date should put the task at the bottom.
+Verify updating the task with date will put in the ascending order of the date.
+
+Adding Category:
+Verify nothing happens without entering any category & clicking on 'Add Category' button. 
+Add a category without selecting any color. Verify category name with black color is added in category link and category drop down
+Add a task by selecting  newly added category. Verify task color is black.
+Add a new category by selecting color which is not chosen for any other task. Verify  both category link & in category in drop down has chosen color 
+Add a task by selecting  newly added category. Verify task color is same as previous test case.
+Add  a  new category by selecting color which is chosen for other task. verify user has option to 'rename the category', 'nevermind','Add a category with this color'
+Verify clicking on 'nevermind'or browser back should return back to index page
+Verify clicking on 'rename the category' with will rename the existing category with new name,color, name/color change should be reflected in 'category' link and 'category dropdown'but previously added task color shouldn't change.
+ Add a task by selecting newly rename category. verify task color with selected color in previous test case. 
+Verify clicking on 'Add Category with this colour' should add category with newly selected color,existing category with same color should change back to black and new category color should be reflected in color link and category drop down.
+Verify 'The category you want to add already exists' message is displayed if duplicate category is added. Verify user can return back to index page by clicking on browser back or never mind link.
+Enter any special characters or any numbers of chars  upto 150 or more, verify category is added and should not break the system.(Note: There is no field validation or no max limit set for text field). Also it display horizontal scroll bar.
+Verify user can remove the category by selecting 'category link' and  add new category with existing category color or new color.
+Verify category wraps to second line if there are more number categories added or if the browser is resized to smaller size
+
+End to End testing:
+Add a category with new color or existing color, verify new category with selected color is displayed in category link and category drop down, select the newly added category and create a new task. Verify new task with newly added category (with its respective color) should be added.
+
+=========================
+API Test cases (Automated)
+Testlink: http://localhost/dotdash-project/fake-API-call.php
+1. load the api url.
+2. Verify json list all the tasks and total count of tasks
+3. Verify task that has no category is displayed
+4. verify task is displayed in descending date order.
+
+Selenium test cases(Automated)
+1. Verify user can add task
+2. Verify user can update the task
+3. Verify user can add the category
+4. verify user can remove task
+5. verify user can mark the task as complete.
+
+Note: Please refer additonal dotdash.doc for classes and packages and their description 
+
+
